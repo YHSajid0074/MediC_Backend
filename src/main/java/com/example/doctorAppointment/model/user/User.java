@@ -40,6 +40,6 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Doctor doctor;
 
-    @OneToMany(mappedBy = "appointment")
+    @OneToMany(mappedBy = "user")
     private Set<Appointment> appointment;
 }

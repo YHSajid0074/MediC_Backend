@@ -51,7 +51,7 @@ public class Doctor {
 
     private Set<Hospital> hospitals;
 
-    @OneToMany(mappedBy = "appointment")
+    @OneToMany(mappedBy = "doctor")
     private Set<Appointment> appointment;
 
 }
