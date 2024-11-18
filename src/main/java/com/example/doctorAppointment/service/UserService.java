@@ -1,0 +1,22 @@
+package com.example.doctorAppointment.service;
+
+import com.example.doctorAppointment.dto.request.UserRequestDto;
+import com.example.doctorAppointment.dto.response.UserResponseDto;
+import com.example.doctorAppointment.model.user.User;
+import org.springframework.data.domain.Page;
+
+import java.util.List;
+
+public interface UserService {
+
+   public void createUser(UserRequestDto user);
+
+   public UserResponseDto getUserById(Long id);
+
+   public void updateUser(UserRequestDto user);
+
+   public void deleteUser(Long id);
+
+   public Page<UserResponseDto> getAllUsers(int page, int size, String sortBy, String sortOrder);
+
+}
