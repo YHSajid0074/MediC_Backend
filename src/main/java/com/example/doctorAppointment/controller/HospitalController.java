@@ -72,4 +72,9 @@ public class HospitalController {
         return ResponseEntity.ok(hospitalService.getAllDoctorsByHospitalId(hospitalId));
     }
 
+    @GetMapping("{name}")
+    public ResponseEntity<HospitalResponseDto>getHospitalByName(@PathVariable String name){
+        return ResponseEntity.ok(hospitalService.getHospitalByName(name));
+    }
+
 }

@@ -9,7 +9,6 @@ import com.example.doctorAppointment.repository.doctorRepo.DoctorRepo;
 import com.example.doctorAppointment.repository.hospitalRepo.HospitalRepo;
 import com.example.doctorAppointment.service.HospitalService;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Set;
 
@@ -56,8 +55,8 @@ public class HospitalServiceImpl implements HospitalService {
 
        Hospital hospital = hospitalRepo.findById(hospitalId).get();
        Hospital hospitalUpdate = convertToEntity(hospitalRequestDto,hospital);
-       hospitalRepo.save(hospitalUpdate);
 
+       hospitalRepo.save(hospitalUpdate);
     }
 
     @Override
@@ -78,8 +77,8 @@ public class HospitalServiceImpl implements HospitalService {
     }
 
     @Override
-    public List<HospitalResponseDto> getHospitalByName(String doctorName) {
-        return List.of();
+    public HospitalResponseDto getHospitalByName(String doctorName) {
+        return hospitalRepo.findHospitalByHospitalName(doctorName);
     }
 
     @Override

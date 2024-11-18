@@ -19,7 +19,7 @@ public void addHospital(HospitalRequestDto hospitalRequestDto);
 public void updateHospital(HospitalRequestDto hospitalRequestDto,Long hospitalId);
 public void deleteHospital(Long hospitalId);
 public void assignDoctor(Long HospitalId,Long DoctorId);
-public List<HospitalResponseDto>  getHospitalByName(String doctorName);
+public HospitalResponseDto  getHospitalByName(String doctorName);
 public Set<HospitalResponseDto.Doctors> getAllDoctorsByHospitalId(Long hospitalId);
 
 

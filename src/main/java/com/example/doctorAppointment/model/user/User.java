@@ -1,10 +1,13 @@
 package com.example.doctorAppointment.model.user;
+import com.example.doctorAppointment.model.appointment.Appointment;
 import com.example.doctorAppointment.model.doctor.Doctor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 
 @AllArgsConstructor
@@ -36,4 +39,7 @@ public class User {
 
     @OneToOne(mappedBy = "user")
     private Doctor doctor;
+
+    @OneToMany(mappedBy = "appointment")
+    private Set<Appointment> appointment;
 }

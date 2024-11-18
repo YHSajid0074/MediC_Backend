@@ -32,5 +32,12 @@ public interface HospitalRepo extends JpaRepository<Hospital,Long> {
     public List<HospitalResponseDto> findAllHospitals();
 
 
+    @Query(
+            """
+            SELECT h
+            FROM Hospital h
+            WHERE h.hospitalName LIKE %:name%
+            """
+    )
     public HospitalResponseDto findHospitalByHospitalName(String name);
 }
