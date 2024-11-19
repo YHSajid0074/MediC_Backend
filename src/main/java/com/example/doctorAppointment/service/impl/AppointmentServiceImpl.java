@@ -32,7 +32,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     public Appointment getAppointmentById(Long id) {
-        return null;
+        return appointmentRepo.findById(id).get();
     }
 
     @Override
