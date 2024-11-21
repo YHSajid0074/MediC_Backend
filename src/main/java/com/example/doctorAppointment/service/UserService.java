@@ -13,7 +13,7 @@ public interface UserService {
 
    public UserResponseDto getUserById(Long id);
 
-   public void updateUser(UserRequestDto user);
+   public void updateUser(UserRequestDto user,Long id);
 
    public void deleteUser(Long id);
 

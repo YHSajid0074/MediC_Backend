@@ -47,8 +47,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(UserRequestDto user) {
-
+    public void updateUser(UserRequestDto userRequestDto,Long id) {
+        User user=userRepo.findById(id).get();
+        User user1 = convertToEntity(userRequestDto,user);
+        userRepo.save(user1);
     }
 
     @Override

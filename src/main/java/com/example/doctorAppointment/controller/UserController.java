@@ -40,4 +40,10 @@ public class UserController {
       return ResponseEntity.ok(userService.getAllUsers(page,size,sortBy,sortOrder));
     }
 
+    @PutMapping("update/{id}")
+    public ResponseEntity<String>updateUser(@RequestBody UserRequestDto userRequestDto,@PathVariable Long id) {
+        userService.updateUser(userRequestDto,id);
+        return ResponseEntity.ok("User Updated");
+    }
+
 }

@@ -15,7 +15,7 @@ public interface AppointmentResponseDto {
     DoctorInfo getDoctor();
 
     // Patient details (User)
-    UserInfo getPatient();
+    UserInfo getUser();
 
     // Nested interface for Doctor information
     interface DoctorInfo {

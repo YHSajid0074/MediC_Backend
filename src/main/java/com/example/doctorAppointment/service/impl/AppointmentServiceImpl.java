@@ -1,5 +1,6 @@
 package com.example.doctorAppointment.service.impl;
 
+import com.example.doctorAppointment.dto.response.AppointmentResponseDto;
 import com.example.doctorAppointment.model.appointment.Appointment;
 import com.example.doctorAppointment.model.appointment.Status;
 import com.example.doctorAppointment.repository.appointmentRepo.AppointmentRepo;
@@ -15,6 +16,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     public AppointmentRepo appointmentRepo;
     public UserRepo userRepo;
     public DoctorRepo doctorRepo;
+
     public AppointmentServiceImpl(AppointmentRepo appointmentRepo, UserRepo userRepo, DoctorRepo doctorRepo) {
         this.appointmentRepo = appointmentRepo;
         this.userRepo = userRepo;
@@ -22,31 +24,33 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public void createAppointment(Long doctorId, Long UserId) {
+    public void createAppointment(Long UserId, Long doctorId) {
+
         Appointment appointment = new Appointment();
         appointment.setUser(userRepo.findById(UserId).get());
         appointment.setDoctor(doctorRepo.findById(doctorId).get());
         appointment.setStatus(Status.SCHEDULED);
+
         appointmentRepo.save(appointment);
     }
 
     @Override
-    public Appointment getAppointmentById(Long id) {
-        return appointmentRepo.findById(id).get();
+    public AppointmentResponseDto getAppointmentById(Long id) {
+        return appointmentRepo.findAppointmentById(id);
     }
 
     @Override
-    public Set<Appointment> getAppointmentByDoctorId(Long doctorId) {
-        return Set.of();
+    public Set<AppointmentResponseDto> getAppointmentByDoctorId(Long doctorId) {
+        return appointmentRepo.findAppointmentByDoctorId(doctorId);
     }
 
     @Override
-    public Set<Appointment> getAppointmentByUserId(Long UserId) {
-        return Set.of();
+    public Set<AppointmentResponseDto> getAppointmentByUserId(Long UserId) {
+        return appointmentRepo.findAppointmentsByUserId(UserId);
     }
 
     @Override
-    public Set<Appointment> getAppointmentByDoctorIdAndUserId(Long doctorId, Long UserId) {
-        return Set.of();
+    public Set<AppointmentResponseDto> getAppointmentByDoctorIdAndUserId(Long doctorId, Long UserId) {
+        return appointmentRepo.findAppointmentsByDoctorIdAndUserId(doctorId, UserId);
     }
 }
