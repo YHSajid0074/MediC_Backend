@@ -5,11 +5,12 @@ import com.example.doctorAppointment.dto.response.MedicalRecordResponseDto;
 import com.example.doctorAppointment.model.medicalRecord.MedicalRecord;
 
 import java.util.List;
+import java.util.Set;
 
 public interface MedicalRecordService {
 
     public void createMedicalRecord(MedicalRecordRequestDto medicalRecordRequestDto);
-    public List<MedicalRecordResponseDto> getAllMedicalRecord();
+    public Set<MedicalRecordResponseDto> getAllMedicalRecord();
     public MedicalRecordResponseDto getMedicalRecordById(Long id);
     public void updateMedicalRecord(MedicalRecordRequestDto medicalRecordRequestDto,Long id);
     public void deleteMedicalRecord(Long id);

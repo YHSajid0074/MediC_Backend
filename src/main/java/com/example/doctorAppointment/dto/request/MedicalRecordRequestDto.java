@@ -6,13 +6,9 @@ import java.time.LocalDateTime;
 
 public record MedicalRecordRequestDto(
 
-        Long recordId,
-
         String diagnosis,
 
         String treatmentPlan,
-
-        LocalDateTime createTime,
 
         String medications,
 

@@ -10,6 +10,8 @@ import com.example.doctorAppointment.service.MedicalRecordService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
+
 @Service
 public class MedicalRecordServiceImpl implements MedicalRecordService {
 
@@ -39,28 +41,34 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
     public void createMedicalRecord(MedicalRecordRequestDto medicalRecordRequestDto) {
 
        MedicalRecord medicalRecord1=ConvertToEntity(medicalRecordRequestDto,new MedicalRecord());
+
        medicalRecordRepo.save(medicalRecord1);
 
     }
 
 
     @Override
-    public List<MedicalRecordResponseDto> getAllMedicalRecord() {
-        return List.of();
+    public Set<MedicalRecordResponseDto> getAllMedicalRecord() {
+        return medicalRecordRepo.findAllMedicalRecord();
     }
 
     @Override
     public MedicalRecordResponseDto getMedicalRecordById(Long id) {
-        return null;
+        return medicalRecordRepo.findMedicalRecordById(id);
     }
 
     @Override
     public void updateMedicalRecord(MedicalRecordRequestDto medicalRecordRequestDto,Long id) {
 
+     MedicalRecord medicalRecord=medicalRecordRepo.findById(id).get();
+     MedicalRecord updatedMedicalRecord=ConvertToEntity(medicalRecordRequestDto,medicalRecord);
+
+     medicalRecordRepo.save(updatedMedicalRecord);
+
     }
 
     @Override
     public void deleteMedicalRecord(Long id) {
-
+        medicalRecordRepo.deleteById(id);
     }
 }

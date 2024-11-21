@@ -8,11 +8,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor
 @Setter
 @Getter
 public class MedicalRecord {
@@ -26,7 +27,6 @@ public class MedicalRecord {
     @Column(nullable = false)
     String treatmentPlan;
 
-    @Column(nullable = false)
     LocalDateTime createTime;
 
     @Column(nullable = false)
@@ -40,4 +40,7 @@ public class MedicalRecord {
     @JoinColumn(name = "doctor_id", nullable = true)
     Doctor doctor;
 
+    public MedicalRecord() {
+        this.createTime = LocalDateTime.now();  // Sets the current time
+    }
 }
