@@ -1,6 +1,7 @@
 package com.example.doctorAppointment.model.user;
 import com.example.doctorAppointment.model.appointment.Appointment;
 import com.example.doctorAppointment.model.doctor.Doctor;
+import com.example.doctorAppointment.model.medicalRecord.MedicalRecord;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,4 +43,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private Set<Appointment> appointment;
+
+    @OneToMany(mappedBy = "user")
+    private Set<MedicalRecord>medicalRecords;
 }

@@ -2,6 +2,7 @@ package com.example.doctorAppointment.model.doctor;
 
 import com.example.doctorAppointment.model.appointment.Appointment;
 import com.example.doctorAppointment.model.hospital.Hospital;
+import com.example.doctorAppointment.model.medicalRecord.MedicalRecord;
 import com.example.doctorAppointment.model.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -53,5 +54,8 @@ public class Doctor {
 
     @OneToMany(mappedBy = "doctor")
     private Set<Appointment> appointment;
+
+    @OneToMany(mappedBy = "doctor")
+    private Set<MedicalRecord>medicalRecords;
 
 }
