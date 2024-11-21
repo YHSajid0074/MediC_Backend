@@ -1,6 +1,7 @@
 package com.example.doctorAppointment.model.user;
 import com.example.doctorAppointment.model.appointment.Appointment;
 import com.example.doctorAppointment.model.doctor.Doctor;
+import com.example.doctorAppointment.model.healthMatrics.HealthMetrics;
 import com.example.doctorAppointment.model.medicalRecord.MedicalRecord;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Set;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -46,4 +46,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private Set<MedicalRecord>medicalRecords;
+
+    @OneToMany(mappedBy = "user")
+    private Set<HealthMetrics> healthMetrics;
 }
