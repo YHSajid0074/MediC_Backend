@@ -1,6 +1,7 @@
 package com.example.doctorAppointment.service.impl;
 
 import com.example.doctorAppointment.dto.request.HealthMetricsRequestDto;
+import com.example.doctorAppointment.dto.response.HealthMetricsResponseDto;
 import com.example.doctorAppointment.model.healthMatrics.HealthMetrics;
 import com.example.doctorAppointment.repository.healthMetricsRepo.HealthMetricsRepo;
 import com.example.doctorAppointment.repository.userRepo.UserRepo;
@@ -36,13 +37,15 @@ public class HealthMetricsServiceImpl implements HealthMetricsService {
     }
 
     @Override
-    public HealthMetrics getAllHealthMetrics() {
-        return null;
+    public Set<HealthMetricsResponseDto> getAllHealthMetrics() {
+        return healthMetricsRepo.getAllHealthMetrics();
     }
 
     @Override
     public void updateHealthMetrics(HealthMetricsRequestDto healthMetricsRequestDto,Long id) {
-
+        HealthMetrics healthMetrics = healthMetricsRepo.findById(id).get();
+        HealthMetrics healthMetrics1=convertToEntity(healthMetricsRequestDto,healthMetrics);
+        healthMetricsRepo.save(healthMetrics1);
     }
 
     @Override
@@ -51,7 +54,7 @@ public class HealthMetricsServiceImpl implements HealthMetricsService {
     }
 
     @Override
-    public Set<HealthMetrics> getHealthMetricsById(Long id) {
-        return Set.of();
+    public HealthMetricsResponseDto getHealthMetricsById(Long id) {
+        return healthMetricsRepo.getHealthMetricsById(id);
     }
 }

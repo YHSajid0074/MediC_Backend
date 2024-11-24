@@ -11,24 +11,24 @@ import org.springframework.stereotype.Repository;
 import java.util.Set;
 
 @Repository
-public interface DoctorRepo extends JpaRepository<Doctor,Long> {
+public interface DoctorRepo extends JpaRepository<Doctor, Long> {
 
     @Query(
             """
-       SELECT  d
-       from Doctor d
-       where d.doctorId=:doctorId
-       """
+                    SELECT  d
+                    from Doctor d
+                    where d.doctorId=:doctorId
+                    """
     )
     DoctorResponseDto findDoctorById(Long doctorId);
 
     @Query(""" 
-  SELECT d from Doctor d
-          """)
-    Page<DoctorResponseDto>findAllDoctor(Pageable pageable);
+            SELECT d from Doctor d
+            """)
+    Page<DoctorResponseDto> findAllDoctor(Pageable pageable);
 
     @Query(""" 
-  SELECT d from Doctor d
-  """)
+            SELECT d from Doctor d
+            """)
     Set<DoctorResponseDto> findDoctors();
 }
