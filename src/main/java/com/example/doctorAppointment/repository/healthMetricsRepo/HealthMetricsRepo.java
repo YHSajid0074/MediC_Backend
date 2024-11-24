@@ -9,5 +9,4 @@ import java.util.List;
 @Repository
 public interface HealthMetricsRepo extends JpaRepository<HealthMetrics, Long> {
 
-    public List<HealthMetrics> findByPatientId(Long patientId);
 }
