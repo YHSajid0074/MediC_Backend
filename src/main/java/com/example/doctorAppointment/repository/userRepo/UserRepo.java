@@ -37,4 +37,7 @@ public interface UserRepo extends JpaRepository<User, Long> {
                    User u
  """)
     public Page<UserResponseDto> getAllUsers(Pageable pageable);
+
+    @Query("SELECT u FROM User u WHERE u.userName = :name")
+    public User findUserByName(String name);
 }
