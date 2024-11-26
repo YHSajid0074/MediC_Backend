@@ -5,6 +5,8 @@ import com.example.doctorAppointment.model.appointment.Appointment;
 import com.example.doctorAppointment.service.AppointmentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.Authentication;
 
 import java.util.Set;
 
@@ -41,7 +43,18 @@ public class AppointmentController {
 
     @GetMapping("user/{userId}")
     public ResponseEntity<Set<AppointmentResponseDto>> getAppointmentByUserId(@PathVariable Long userId){
+
         return ResponseEntity.ok(appointmentService.getAppointmentByUserId(userId));
     }
-    
+
+
+
+@GetMapping("name")
+    public String getUsernameFromSecurityContext() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getName(); // This returns the username of the currently authenticated user
+    }
+
+
+
 }
