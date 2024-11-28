@@ -131,5 +131,24 @@ public class MenuServiceImpl  {
         return parentMenuItem;
     }
 
+    public List<MenuItem> getAllModules() {
+        return menuItemRepo.findAll();
+    }
+
+
+    public MenuItemResponseDto getById(Long id) {
+        MenuItem menuItem=menuItemRepo.findById(id).get();
+        MenuItemResponseDto menuItemResponseDto=mapToResponseDtoWithChildren(menuItem);
+        return menuItemResponseDto;
+    }
+
+    public List<MenuItemResponseDto> getAll() {
+        List<MenuItem> allSubmodules = menuItemRepo.findAll();
+        List<MenuItemResponseDto> menuItemResponseDto = new ArrayList<>();
+        for (MenuItem menuItem : allSubmodules) {
+            menuItemResponseDto.add(mapToResponseDtoWithChildren(menuItem));
+        }
+        return menuItemResponseDto;
+    }
 
 }

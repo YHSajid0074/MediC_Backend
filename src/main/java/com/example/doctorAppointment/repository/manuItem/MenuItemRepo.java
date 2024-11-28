@@ -12,17 +12,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 @Repository
 public interface MenuItemRepo extends JpaRepository <MenuItem,Long> {
-
-    Optional<MenuItem> findByMenuNameIgnoreCase(String menuName);
-
-    List<MenuItem> findByMenuNameIgnoreCaseIn(Set<String> menuName);
-
-   // List<MenuItem> findByIsActionFalseAndIsActiveTrue(Sort sort);
 
     @Query("""
           SELECT m
@@ -49,4 +41,5 @@ public interface MenuItemRepo extends JpaRepository <MenuItem,Long> {
 
     @Query("SELECT m FROM MenuItem m WHERE m.parent.id = :parentId")
     List<MenuItemResponseDto> findSubmodulesByParentId(@Param("parentId") Long parentId);
+
 }
