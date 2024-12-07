@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class MenuServiceImpl  {
+
     private final MenuItemRepo menuItemRepo;
 
     public MenuServiceImpl(MenuItemRepo menuItemRepo) {
@@ -40,17 +41,18 @@ public class MenuServiceImpl  {
     }
 
 
-
     public List<MenuItemResponseDto> getSubmodulesRecursively(MenuItem menuItem) {
+
         List<MenuItemResponseDto> allSubmodules = new ArrayList<>();
         findSubmodulesRecursive(menuItem, allSubmodules);
+
         return allSubmodules;
     }
+
 
     private void findSubmodulesRecursive(MenuItem module, List<MenuItemResponseDto> allSubmodules) {
         List<MenuItem> submodules = menuItemRepo.findByParentModule(module);
 
-        // Map each MenuItem to MenuItemResponseDto and add to the list
         allSubmodules.addAll(
                 submodules.stream()
                         .map(this::mapToResponseDtoWithChildren)
@@ -81,10 +83,12 @@ public class MenuServiceImpl  {
 
 
     public List<MenuItemResponseDto> getTopLevelModules1() {
-        List<MenuItem> topLevelModules = menuItemRepo.findAllByParentIdIsNull(); // Fetch top-level menu items
+        List<MenuItem> topLevelModules = menuItemRepo.findAllByParentIdIsNull();
+
         return topLevelModules.stream()
-                .map(this::mapToResponseDtoWithChildren) // Map each MenuItem to MenuItemResponseDto
-                .collect(Collectors.toList()); // Collect into a list
+                .map(this::mapToResponseDtoWithChildren)
+                .collect(Collectors.toList());
+
     }
 
 
@@ -137,17 +141,22 @@ public class MenuServiceImpl  {
 
 
     public MenuItemResponseDto getById(Long id) {
+
         MenuItem menuItem=menuItemRepo.findById(id).get();
         MenuItemResponseDto menuItemResponseDto=mapToResponseDtoWithChildren(menuItem);
+        
         return menuItemResponseDto;
     }
 
     public List<MenuItemResponseDto> getAll() {
+
         List<MenuItem> allSubmodules = menuItemRepo.findAll();
+
         List<MenuItemResponseDto> menuItemResponseDto = new ArrayList<>();
         for (MenuItem menuItem : allSubmodules) {
             menuItemResponseDto.add(mapToResponseDtoWithChildren(menuItem));
         }
+
         return menuItemResponseDto;
     }
 
