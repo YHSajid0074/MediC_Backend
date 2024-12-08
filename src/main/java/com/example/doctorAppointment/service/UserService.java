@@ -2,10 +2,7 @@ package com.example.doctorAppointment.service;
 
 import com.example.doctorAppointment.dto.request.UserRequestDto;
 import com.example.doctorAppointment.dto.response.UserResponseDto;
-import com.example.doctorAppointment.model.user.User;
 import org.springframework.data.domain.Page;
-
-import java.util.List;
 
 public interface UserService {
 

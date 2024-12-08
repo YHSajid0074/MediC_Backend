@@ -1,6 +1,6 @@
 //package com.example.doctorAppointment.config;
 //
-//import com.example.doctorAppointment.model.user.User;
+//import com.example.doctorAppointment.model.coreUser.CoreUser;
 //import org.springframework.security.core.GrantedAuthority;
 //import org.springframework.security.core.authority.SimpleGrantedAuthority;
 //import org.springframework.security.core.userdetails.UserDetails;
@@ -12,9 +12,9 @@
 //
 //public class UserPrinciple implements UserDetails {
 //
-//    public User user;
-//    public UserPrinciple(User user) {
-//        this.user=user;
+//    public CoreUser coreUser;
+//    public UserPrinciple(CoreUser coreUser) {
+//        this.coreUser=coreUser;
 //    }
 //        @Override
 //    public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -23,12 +23,12 @@
 //
 //    @Override
 //    public String getPassword() {
-//        return user.getPassword();
+//        return coreUser.getPassword();
 //    }
 //
 //    @Override
 //    public String getUsername() {
-//        return user.getUserName();
+//        return coreUser.getUserName();
 //    }
 //
 //    @Override

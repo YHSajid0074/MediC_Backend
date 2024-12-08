@@ -2,13 +2,11 @@ package com.example.doctorAppointment.model.appointment;
 
 
 import com.example.doctorAppointment.model.doctor.Doctor;
-import com.example.doctorAppointment.model.user.User;
+import com.example.doctorAppointment.model.user.CoreUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.jpa.repository.EntityGraph;
 
 import java.sql.Time;
 import java.util.Date;
@@ -37,7 +35,7 @@ public class Appointment {
 
    @ManyToOne
    @JoinColumn(name = "user_id",nullable = true)
-   public User user;
+   public CoreUser coreUser;
 
     public Appointment() {
         this.appointmentDate = new Date(); // Sets the current date

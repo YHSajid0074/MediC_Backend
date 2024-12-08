@@ -51,7 +51,7 @@ public class AppointmentController {
 //@GetMapping("name")
 //    public String getUsernameFromSecurityContext() {
 //        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        return authentication.getName(); // This returns the username of the currently authenticated user
+//        return authentication.getName(); // This returns the username of the currently authenticated coreUser
 //    }
 
 

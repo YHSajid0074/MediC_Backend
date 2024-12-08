@@ -1,16 +1,13 @@
 package com.example.doctorAppointment.model.medicalRecord;
 
 import com.example.doctorAppointment.model.doctor.Doctor;
-import com.example.doctorAppointment.model.user.User;
+import com.example.doctorAppointment.model.user.CoreUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Time;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @AllArgsConstructor
@@ -34,7 +31,7 @@ public class MedicalRecord {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)
-    User user;
+    CoreUser coreUser;
 
     @ManyToOne
     @JoinColumn(name = "doctor_id", nullable = true)

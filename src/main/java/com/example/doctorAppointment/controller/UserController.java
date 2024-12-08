@@ -20,7 +20,7 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<String>createUser(@RequestBody UserRequestDto userRequestDto) {
         userService.createUser(userRequestDto);
-        return ResponseEntity.ok("User Created");
+        return ResponseEntity.ok("CoreUser Created");
     }
 
     @GetMapping("{userId}")
@@ -32,7 +32,7 @@ public class UserController {
     @DeleteMapping("{userId}")
     public ResponseEntity<String>deleteUserById(@PathVariable Long userId) {
         userService.deleteUser(userId);
-        return ResponseEntity.ok("User Deleted");
+        return ResponseEntity.ok("CoreUser Deleted");
     }
 
     @GetMapping("All")
@@ -43,7 +43,7 @@ public class UserController {
     @PutMapping("update/{id}")
     public ResponseEntity<String>updateUser(@RequestBody UserRequestDto userRequestDto,@PathVariable Long id) {
         userService.updateUser(userRequestDto,id);
-        return ResponseEntity.ok("User Updated");
+        return ResponseEntity.ok("CoreUser Updated");
     }
 
 }

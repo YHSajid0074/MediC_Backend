@@ -9,7 +9,6 @@ import com.example.doctorAppointment.repository.userRepo.UserRepo;
 import com.example.doctorAppointment.service.MedicalRecordService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
 
 @Service
@@ -31,7 +30,7 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
         medicalRecord.setDiagnosis(medicalRecordRequestDto.diagnosis());
         medicalRecord.setTreatmentPlan(medicalRecordRequestDto.treatmentPlan());
         medicalRecord.setDoctor(doctorRepo.findById(medicalRecordRequestDto.doctorId()).get());
-        medicalRecord.setUser(userRepo.findById(medicalRecordRequestDto.userId()).get());
+        medicalRecord.setCoreUser(userRepo.findById(medicalRecordRequestDto.userId()).get());
 
         return medicalRecord;
     }

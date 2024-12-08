@@ -1,6 +1,6 @@
 //package com.example.doctorAppointment.config;
 //
-//import com.example.doctorAppointment.model.user.User;
+//import com.example.doctorAppointment.model.coreUser.CoreUser;
 //import com.example.doctorAppointment.repository.userRepo.UserRepo;
 //import org.springframework.security.core.userdetails.UserDetails;
 //import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,11 +16,11 @@
 //    }
 //    @Override
 //    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//       User user=userRepo.findUserByName(username);
-//       if(user==null){
+//       CoreUser coreUser=userRepo.findUserByName(username);
+//       if(coreUser==null){
 //           throw new UsernameNotFoundException(username);
 //       }
-//       return new UserPrinciple(user);
+//       return new UserPrinciple(coreUser);
 //
 //    }
 //}

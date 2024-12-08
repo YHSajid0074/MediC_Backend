@@ -3,15 +3,12 @@ package com.example.doctorAppointment.model.doctor;
 import com.example.doctorAppointment.model.appointment.Appointment;
 import com.example.doctorAppointment.model.hospital.Hospital;
 import com.example.doctorAppointment.model.medicalRecord.MedicalRecord;
-import com.example.doctorAppointment.model.user.User;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.example.doctorAppointment.model.user.CoreUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.w3c.dom.Text;
 
 import java.util.Set;
 
@@ -42,7 +39,7 @@ public class Doctor {
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private CoreUser coreUser;
 
     @ManyToMany(
             cascade = {CascadeType.PERSIST, CascadeType.MERGE},

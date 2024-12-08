@@ -14,7 +14,7 @@ public interface AppointmentResponseDto {
     // Doctor details
     DoctorInfo getDoctor();
 
-    // Patient details (User)
+    // Patient details (CoreUser)
     UserInfo getUser();
 
     // Nested interface for Doctor information
@@ -24,17 +24,17 @@ public interface AppointmentResponseDto {
         Double getRating();
         String getBio();
 
-        // Associated User details (specific fields only)
+        // Associated CoreUser details (specific fields only)
         DoctorUserInfo getUser();
     }
 
-    // Nested interface for specific fields from Doctor's User
+    // Nested interface for specific fields from Doctor's CoreUser
     interface DoctorUserInfo {
         String getUserName();
         String getEmail();
     }
 
-    // Nested interface for User information (for patient)
+    // Nested interface for CoreUser information (for patient)
     interface UserInfo {
         String getUserName();
         String getEmail();

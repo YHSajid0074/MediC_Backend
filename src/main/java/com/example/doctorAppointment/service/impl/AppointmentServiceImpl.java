@@ -27,7 +27,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     public void createAppointment(Long UserId, Long doctorId) {
 
         Appointment appointment = new Appointment();
-        appointment.setUser(userRepo.findById(UserId).get());
+        appointment.setCoreUser(userRepo.findById(UserId).get());
         appointment.setDoctor(doctorRepo.findById(doctorId).get());
         appointment.setStatus(Status.SCHEDULED);
 

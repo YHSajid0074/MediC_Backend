@@ -24,7 +24,7 @@ public class HealthMetricsServiceImpl implements HealthMetricsService {
     public HealthMetrics convertToEntity(HealthMetricsRequestDto healthMetricsRequestDto,HealthMetrics healthMetrics) {
         healthMetrics.setMetricValue(healthMetricsRequestDto.metricValue());
         healthMetrics.setMetricType(healthMetricsRequestDto.metricType());
-        healthMetrics.setUser(userRepo.findById(healthMetricsRequestDto.userId()).get());
+        healthMetrics.setCoreUser(userRepo.findById(healthMetricsRequestDto.userId()).get());
         return healthMetrics;
 
     }

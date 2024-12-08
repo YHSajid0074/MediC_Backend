@@ -26,7 +26,7 @@ public interface AppointmentRepo extends JpaRepository<Appointment,Long> {
 
     @Query("""
             SELECT a FROM Appointment a
-                where  a.user.userId=:userId
+                where  a.coreUser.userId=:userId
             """)
     Set<AppointmentResponseDto> findAppointmentsByUserId(Long userId);
 
@@ -34,7 +34,7 @@ public interface AppointmentRepo extends JpaRepository<Appointment,Long> {
     @Query("""
             SELECT a FROM Appointment a
             WHERE a.doctor.doctorId=:doctorId
-            and a.user.userId=:userId
+            and a.coreUser.userId=:userId
             """)
     Set<AppointmentResponseDto> findAppointmentsByDoctorIdAndUserId(Long doctorId, Long userId);
 

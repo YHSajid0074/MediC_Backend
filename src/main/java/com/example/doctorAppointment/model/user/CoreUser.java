@@ -16,7 +16,8 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-public class User {
+
+public class CoreUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     Long userId;
@@ -38,15 +39,15 @@ public class User {
 
     String address;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "coreUser")
     private Doctor doctor;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "coreUser")
     private Set<Appointment> appointment;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "coreUser")
     private Set<MedicalRecord>medicalRecords;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "coreUser")
     private Set<HealthMetrics> healthMetrics;
 }

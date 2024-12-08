@@ -1,10 +1,9 @@
 package com.example.doctorAppointment.model.healthMatrics;
 
-import com.example.doctorAppointment.model.user.User;
+import com.example.doctorAppointment.model.user.CoreUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -28,7 +27,7 @@ public class HealthMetrics {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)
-    User user;
+    CoreUser coreUser;
 
     public HealthMetrics(){
         this.recordTime = LocalDateTime.now();

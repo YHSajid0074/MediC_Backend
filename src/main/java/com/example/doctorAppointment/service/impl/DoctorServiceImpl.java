@@ -2,7 +2,6 @@ package com.example.doctorAppointment.service.impl;
 
 import com.example.doctorAppointment.dto.request.DoctorRequestDto;
 import com.example.doctorAppointment.dto.response.DoctorResponseDto;
-import com.example.doctorAppointment.dto.response.HospitalResponseDto;
 import com.example.doctorAppointment.model.doctor.Doctor;
 import com.example.doctorAppointment.repository.doctorRepo.DoctorRepo;
 import com.example.doctorAppointment.repository.userRepo.UserRepo;
@@ -13,8 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Service
@@ -35,7 +32,7 @@ public class DoctorServiceImpl implements DoctorService {
         doctor.setHospitalAffiliation(doctorRequestDto.hospitalAffiliation());
         doctor.setExperience_years(doctorRequestDto.experience_years());
         doctor.setRating(doctorRequestDto.rating());
-        doctor.setUser(userRepo.findById(doctorRequestDto.userId()).get());
+        doctor.setCoreUser(userRepo.findById(doctorRequestDto.userId()).get());
 
         return doctor;
     }

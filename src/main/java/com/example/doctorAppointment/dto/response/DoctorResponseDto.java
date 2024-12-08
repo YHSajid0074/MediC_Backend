@@ -1,8 +1,5 @@
 package com.example.doctorAppointment.dto.response;
 
-import com.example.doctorAppointment.model.hospital.Hospital;
-import com.example.doctorAppointment.model.user.User;
-
 import java.util.Set;
 
 public interface DoctorResponseDto {
