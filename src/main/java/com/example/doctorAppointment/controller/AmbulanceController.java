@@ -52,5 +52,4 @@ public class AmbulanceController {
     public ResponseEntity<List<AmbulanceResponseDto>>getAmbulanceByLocation(@PathVariable String Location) {
         return ResponseEntity.ok(ambulanceService.getAmbulancesByLocation(Location));
     }
-
 }
